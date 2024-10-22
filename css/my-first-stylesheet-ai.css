@@ -8,7 +8,7 @@ html {
 
 /* Body styling */
 body {
-    background-color: #081362;
+    background-color: thistle;
     font-family: cursive;
     margin-left: auto;
     margin-right: auto;
@@ -16,13 +16,12 @@ body {
     min-width: 256px;
     padding-left: 24px;
     padding-right: 24px;
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    padding-top: 100px; /* Space from the top */
-    padding-bottom: 100px; /* Space from the bottom */
+    padding-bottom: 100px; /* Space from the top */
 }
 
 h1 {
@@ -63,4 +62,5 @@ html {
     border-radius: 8px;
     border: 2px solid #B1B1B1;
 }
+
 
