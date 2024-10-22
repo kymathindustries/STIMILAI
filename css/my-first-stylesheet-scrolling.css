@@ -19,6 +19,8 @@ body {
     gap: 1em; 
     overflow-y: auto; 
     scroll-snap-type: y mandatory; 
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
 }
 
 .reelsContainer::-webkit-scrollbar {
@@ -29,12 +31,15 @@ body {
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0 cover 30%;
-    height: 90vh; /* Adjusted for a more TikTok-like size */
-    width: 100%; /* Full width of the container */
+    height: 80vh; /* Adjusted for TikTok-like size */
+    width: 50%; /* Adjusted to your specifications */
     background-color: #008FB9; 
     scroll-snap-align: start; 
-    border-radius: 15px; 
+    border-radius: 10px; /* Slightly smaller border radius */
     position: relative; 
+    display: flex; /* Enable flexbox for centering content */
+    align-items: center; /* Center content vertically within the reel */
+    justify-content: center; /* Center content horizontally within the reel */
 }
 
 .btn {
@@ -77,6 +82,7 @@ body {
 
     .reel {
         height: 80vh; /* Smaller reel height for mobile */
+        width: 50%; /* Maintain your specified width */
         border-radius: 10px; /* Slightly smaller border radius */
     }
 
@@ -86,3 +92,4 @@ body {
         height: 8vh; /* Adjust button height */
     }
 }
+
