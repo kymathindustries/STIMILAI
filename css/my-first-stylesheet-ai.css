@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    padding-bottom: 100px; /* Space from the top */
+    padding-bottom: 99px; /* Space from the top */
 }
 
 h1 {
