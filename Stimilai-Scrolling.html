@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STIMILAI PAGE 2</title>
+    <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-scrolling.css"/>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userInput = urlParams.get('text'); 
+            const reelsContainer = document.querySelector('.reelsContainer');
+            let reelCount = 0;
+
+            function createReel() {
+                reelCount++;
+                const reelDiv = document.createElement('div');
+                reelDiv.classList.add('reel');
+                reelDiv.innerHTML = `<p>${userInput} - Reel ${reelCount}</p>`;
+                reelsContainer.appendChild(reelDiv);
+            }
+
+            for (let i = 0; i < 5; i++) {
+                createReel();
+            }
+
+            reelsContainer.addEventListener('scroll', () => {
+                const scrollTop = reelsContainer.scrollTop;
+                const scrollHeight = reelsContainer.scrollHeight;
+                const clientHeight = reelsContainer.clientHeight;
+
+                if (scrollTop + clientHeight >= scrollHeight - 10) {
+                    for (let i = 0; i < 3; i++) {
+                        createReel();
+                    }
+                }
+            });
+        }
+
+        function goToPage1() {
+            window.location.href = 'Stimilai-Ai.html'; // Path to Page 1
+        }
+    </script>
+</head>
+<body>
+    <button id="btnh1" class="btn">LIKE BUTTON</button>
+    <script>
+        const button = document.getElementById('btnh1');
+        
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+        });
+    </script>
+
+    <div style="display: flex; justify-content: center;">
+        <div class="reelsContainer"></div>
+    </div>
+
+    <!-- Button to go back to Page 1 -->
+    <button onclick="goToPage1()" class="btn" style="position: fixed; bottom: 20px; left: 20px;">Back to Page 1</button>
+</body>
+</html>

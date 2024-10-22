@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STIMILAI PAGE 1</title>
+    <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-ai.css"/>
+    <script>
+        function goToPage2() {
+            const userInput = document.getElementById('inputText').value;
+            if (userInput) {
+                const page2Url = `Stimilai-Scrolling.html?text=${encodeURIComponent(userInput)}`;
+                window.location.href = page2Url; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Stimulation Reel</h1>
+    <input type="text" id="inputText" placeholder="Enter text here" />
+    <button onclick="goToPage2()">ENTER</button>
+    <div class="image-container">
+        <img src="C:\Users\ACER\Desktop\Stimilai Website\images (2).jfif" alt="World's Greatest Technician 1" class="side-image" />
+        <img src="C:\Users\ACER\Desktop\Stimilai Website\images (2).jfif" alt="World's Greatest Technician 2" class="side-image" />
+        <img src="C:\Users\ACER\Desktop\Stimilai Website\images (2).jfif" alt="World's Greatest Technician 3" class="side-image" />
+        <img src="C:\Users\ACER\Desktop\Stimilai Website\images (2).jfif" alt="World's Greatest Technician 4" class="side-image" />
+        <img src="C:\Users\ACER\Desktop\Stimilai Website\images (2).jfif" alt="World's Greatest Technician 5" class="side-image" />
+    </div>
+</body>
+</html>
