@@ -22,7 +22,7 @@ body {
 }
 @media screen and (max-width: 600px){
     .btn{
-        right: 200px;
+        right: 100px;
     }
 }
 
