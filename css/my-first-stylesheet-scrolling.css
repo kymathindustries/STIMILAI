@@ -24,6 +24,10 @@ body {
     .btn{
         right: 100px;
     }
+    .reel{
+        min-height: 150vh; 
+    min-width: 50vw;
+    }
 }
 
 
