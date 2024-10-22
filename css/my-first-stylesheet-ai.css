@@ -6,34 +6,34 @@ html {
     box-sizing: inherit;
 }
 
-/* Adjust body to fit the header and input */
+/* Body styling */
 body {
-    background-color: Thistle;
+    background-color: #081362;
     font-family: cursive;
     margin-left: auto;
     margin-right: auto;
     max-width: 1024px;
     min-width: 256px;
-    padding-top: 50px; /* Increase padding to make enough space */
-    padding-bottom: 24px;
     padding-left: 24px;
     padding-right: 24px;
-    min-height: 100vh; /* Make sure the body covers full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the content vertically */
-    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding-top: 100px; /* Space from the top */
+    padding-bottom: 100px; /* Space from the bottom */
 }
 
 h1 {
-    font-size: 36px; /* Adjust font size if necessary */
-    margin-bottom: 20px; /* Add margin below the header for spacing */
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 input#inputText {
     padding: 10px;
     font-size: 18px;
-    margin-bottom: 20px; /* Spacing between input and button */
+    margin-bottom: 20px;
 }
 
 button {
@@ -63,3 +63,4 @@ html {
     border-radius: 8px;
     border: 2px solid #B1B1B1;
 }
+
