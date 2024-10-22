@@ -20,6 +20,12 @@ body {
     overflow-y: auto; 
     scroll-snap-type: y mandatory; 
 }
+@media screen and (max-width: 600px){
+    .btn{
+        right: 200px;
+    }
+}
+
 
 .reelsContainer::-webkit-scrollbar {
     display: none;
