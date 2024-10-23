@@ -74,16 +74,21 @@ body {
     }
 }
 
-/* Mobile Styles */
 @media screen and (max-width: 600px) {
-    .reelsContainer {
-        width: 100vw; /* Full width on mobile */
-    }
-
     .reel {
-        height: 80vh; /* Smaller reel height for mobile */
-        width: 50%; /* Maintain your specified width */
+        animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 30%;
+        height: 80vh; 
+        width:  80%; 
         border-radius: 10px; /* Slightly smaller border radius */
+        background-color: #008FB9; 
+    scroll-snap-align: start; 
+        position: relative; 
+    display: flex; /* Enable flexbox for centering content */
+    align-items: center; /* Center content vertically within the reel */
+    justify-content: center; /* Center content horizontally within the reel */
+        left: 10px;
     }
 
     .btn {
@@ -91,5 +96,19 @@ body {
         width: 12vw; /* Wider button for easier tapping */
         height: 8vh; /* Adjust button height */
     }
+    .reelsContainer {
+    background: #013220;
+    height: 100vh; /* Full viewport height */
+    width: 200vw; 
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em; 
+    overflow-y: auto; 
+    scroll-snap-type: y mandatory; 
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
 }
+}
+
 
