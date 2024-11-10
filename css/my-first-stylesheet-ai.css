@@ -1,64 +1,73 @@
-/* set sizing to border box method */
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-/* Body styling */
-body {
-    background-color: thistle;
-    font-family: cursive;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1024px;
-    min-width: 256px;
-    padding-left: 24px;
-    padding-right: 24px;
-    min-height: 50vh;
+/* Main container styling */
+.box {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: #222429;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    padding-bottom: 100px; /* Space from the top */
+    align-items: center;
+    color: white;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-input#inputText {
-    padding: 10px;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-button {
-    border-radius: 10px;
-    width: 190px;
-    font-weight: bolder;
-    font-size: 25px;
-    padding: 10px;
-}
-
-/* Gradient background for html */
-html {
-    background: radial-gradient(circle, SkyBlue, SkyBlue 50%, LightCyan 50%, SkyBlue);
-    background-size: 8px 8px;
-}
-
-.image-container {
+/* Title container styling */
+.title-container {
     display: flex;
-    justify-content: flex-end;
-    margin-top: -100px;
+    justify-content: center;  /* Centers title horizontally */
+    width: 100%;
+    margin-bottom: 20px; /* Space between title and input */
 }
 
-.side-image {
-    width: 100px;
-    height: auto;
-    margin-left: 16px;
-    border-radius: 8px;
-    border: 2px solid #B1B1B1;
+/* Input container styling */
+.input-container {
+    display: flex;
+    justify-content: center;  /* Centers input horizontally */
+    width: 100%; /* Ensure the container takes up full width for centering */
+}
+.placeholder{
+    color: white;
+}
+
+/* Input box styling */
+input.input-box {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #666;
+    width: 200px;  /* Keep the input box width consistent */
+    text-align: center;
+    margin-bottom: 20px; /* Space between input and button */
+    background-color: #444;
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    justify-content: center;  /* Centers button horizontally */
+    align-items: center;      /* Ensures the button is aligned well */
+    width: 100%; /* Ensures the button container takes full width */
+}
+
+/* Button styling */
+.button-box {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 200px;  /* Keep the button width consistent */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-box:hover {
+    background-color: #555;
 }
