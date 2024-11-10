@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STIMILAI PAGE 1</title>
+    <title>Stimilai</title>
     <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-ai.css"/>
     <script>
         function goToPage2() {
             const userInput = document.getElementById('inputText').value;
             if (userInput) {
                 const page2Url = `Stimilai-Scrolling.html?text=${encodeURIComponent(userInput)}`;
-                window.location.href = page2Url; 
+                window.location.href = page2Url;
             }
         }
     </script>
 </head>
 <body>
-    <h1>Stimulation Reel</h1>
-    <input type="text" id="inputText" placeholder="Enter text here" />
-    <button onclick="goToPage2()">ENTER</button>
-    <div class="image-container">
+    <div class="box">
+        <div class="title-container">
+            <h1>Stimilai</h1>
+        </div>
+        <div class="input-container">
+            <input type="text" id="inputText" class="input-box" placeholder="ENTER TEXT HERE" />
+        </div>
+        <div class="button-container">
+            <div class="button-box" onclick="goToPage2()">ENTER</div>
+        </div>
     </div>
-
-
 </body>
 </html>
