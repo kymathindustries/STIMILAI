@@ -1,114 +1,100 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #071b4e;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;  /* Changed color to white to improve visibility */
 }
 
-body {
-    background: #013220;
-    font-family: sans-serif;
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: auto;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+  color: white;
 }
 
-.reelsContainer {
-    background: #013220;
-    height: 110vh; 
-    width: 40vw; 
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em; 
-    overflow-y: auto; 
-    scroll-snap-type: y mandatory; 
-    text-align: center;
-}
-.reelsContainer::-webkit-scrollbar {
-    display: none;}
-
-
-.reel {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 30%;
-    min-height: 90vh; 
-    min-width: 25vw; 
-    background-color: #008FB9; 
-    scroll-snap-align: start; 
-    border-radius: 15px; 
-    position: relative; 
-    text-align: center;
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 230px;
 }
 
-.btn {
-    position: absolute;
-    top: 216px;
-    right: 256px;
-    width: 10vw;
-    height: 10vh;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    transition: background-color 0.3s; 
-    cursor: pointer; 
-    font-family: fantasy;
+.button-box {
+  background-color: #020a1d;
+  color: white;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 200px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.btn.active {
-    background-color: red; 
+.button-box:hover {
+  background-color: #4f586d;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        scale: 0.5;
-    }
-    to {
-        opacity: 1;
-        scale: 1;
-    }
+input {
+  width: 500px;
+  height: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #0a257e;
+  border: 2px solid #992eb4;
+  border-radius: 5px;
 }
-@media screen and (max-width: 600px) {
-    .reel {
-        animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 30%;
-        height: 80vh; 
-        width:  80%; 
-        border-radius: 10px; /* Slightly smaller border radius */
-        background-color: #008FB9; 
-    scroll-snap-align: start; 
-        position: relative; 
-    display: flex; /* Enable flexbox for centering content */
-    align-items: center; /* Center content vertically within the reel */
-    justify-content: center; /* Center content horizontally within the reel */
-        left: 10px;
-        text-align: center;
-        
-        
-    }
 
-    .btn {
-        right: -5vw; /* Adjust button position for smaller screens */
-        width: 12vw; /* Wider button for easier tapping */
-        height: 8vh; /* Adjust button height */
-    }
-    .reelsContainer {
-    background: #013220;
-    height: 95vh; /* Full viewport height */
-    width: 200vw; 
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em; 
-    overflow-y: auto; 
-    scroll-snap-type: y mandatory; 
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-        scroll-padding: 0 24px;
-        scroll-behavior: smooth;
-        text-align: center;
-        
-        
+input:focus {
+  background-color: #1647eb;
+  border-color: #9413b4;
 }
+
+input::placeholder {
+  color: #474aff;
+  font-style: italic;
 }
+
+.entries-container {
+  position: fixed;
+  top: 10%;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  width: 250px;
+  height: auto;
+  max-height: 80%;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.entries-container ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.entries-container li {
+  padding: 5px 0;
+}
+
+.entries-container::-webkit-scrollbar {
+  display: none;}
