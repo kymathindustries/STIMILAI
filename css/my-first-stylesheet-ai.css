@@ -1,73 +1,100 @@
-/* Main container styling */
 .box {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background-color: #222429;
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #071b4e;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;  /* Changed color to white to improve visibility */
 }
 
-/* Title container styling */
 .title-container {
-    display: flex;
-    justify-content: center;  /* Centers title horizontally */
-    width: 100%;
-    margin-bottom: 20px; /* Space between title and input */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: auto;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+  color: white;
 }
 
-/* Input container styling */
-.input-container {
-    display: flex;
-    justify-content: center;  /* Centers input horizontally */
-    width: 100%; /* Ensure the container takes up full width for centering */
-}
-.placeholder{
-    color: white;
-}
-
-/* Input box styling */
-input.input-box {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #666;
-    width: 200px;  /* Keep the input box width consistent */
-    text-align: center;
-    margin-bottom: 20px; /* Space between input and button */
-    background-color: #444;
-}
-
-/* Button container styling */
 .button-container {
-    display: flex;
-    justify-content: center;  /* Centers button horizontally */
-    align-items: center;      /* Ensures the button is aligned well */
-    width: 100%; /* Ensures the button container takes full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 230px;
 }
 
-/* Button styling */
 .button-box {
-    background-color: #444;
-    color: white;
-    border: 1px solid #666;
-    border-radius: 5px;
-    padding: 10px 20px;
-    width: 200px;  /* Keep the button width consistent */
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #020a1d;
+  color: white;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 200px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .button-box:hover {
-    background-color: #555;
+  background-color: #4f586d;
 }
+
+input {
+  width: 500px;
+  height: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #0a257e;
+  border: 2px solid #992eb4;
+  border-radius: 5px;
+}
+
+input:focus {
+  background-color: #1647eb;
+  border-color: #9413b4;
+}
+
+input::placeholder {
+  color: #474aff;
+  font-style: italic;
+}
+
+.entries-container {
+  position: fixed;
+  top: 10%;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  width: 250px;
+  height: auto;
+  max-height: 80%;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.entries-container ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.entries-container li {
+  padding: 5px 0;
+}
+
+.entries-container::-webkit-scrollbar {
+  display: none;}
