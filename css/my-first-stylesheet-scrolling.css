@@ -19,6 +19,7 @@ body {
     gap: 1em; 
     overflow-y: auto; 
     scroll-snap-type: y mandatory; 
+    text-align: center;
 }
 .reelsContainer::-webkit-scrollbar {
     display: none;}
@@ -34,6 +35,7 @@ body {
     scroll-snap-align: start; 
     border-radius: 15px; 
     position: relative; 
+    text-align: center;
 }
 
 .btn {
@@ -81,6 +83,8 @@ body {
     align-items: center; /* Center content vertically within the reel */
     justify-content: center; /* Center content horizontally within the reel */
         left: 10px;
+        text-align: center;
+        
         
     }
 
@@ -103,7 +107,8 @@ body {
     justify-content: center; /* Center items vertically */
         scroll-padding: 0 24px;
         scroll-behavior: smooth;
+        text-align: center;
+        
         
 }
 }
-
