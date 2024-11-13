@@ -7,13 +7,57 @@
     <title>Stimilai</title>
     <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-ai.css"/>
     <script>
-        function goToPage2() {
-            const userInput = document.getElementById('inputText').value;
-            if (userInput) {
-                const page2Url = `Stimilai-Scrolling.html?text=${encodeURIComponent(userInput)}`;
-                window.location.href = page2Url;
+        // Array to store each entry
+        let entries = [];
+
+        // Function to add entry on Enter key press
+        function addEntry(event) {
+            if (event.key === 'Enter') {  // Check if the Enter key was pressed
+                const inputField = document.getElementById('inputText');
+                const entryText = inputField.value.trim();
+                
+                if (entryText) {
+                    // Add entry to the entries array
+                    entries.push(entryText);
+                    inputField.value = "";  // Clear the input field
+                    
+                    // Update the list of entries on the page
+                    updateEntriesDisplay();
+                }
             }
         }
+
+        // Function to update the list of entries displayed on the page
+        function updateEntriesDisplay() {
+            const entriesList = document.getElementById('entriesList');
+            entriesList.innerHTML = "";  // Clear current list
+
+            // Add each entry as a list item
+            entries.forEach(entry => {
+                const li = document.createElement('li');
+                li.textContent = entry;
+                entriesList.appendChild(li);
+            });
+        }
+
+        // Function to navigate to Page 2 and pass entries
+        function goToPage2() {
+            if (entries.length > 0) {
+                // Pass entries as a URL parameter to Page 2
+                const page2Url = `Stimilai-Scrolling.html?entries=${encodeURIComponent(JSON.stringify(entries))}`;
+                window.location.href = page2Url;
+            } else {
+                alert("Please enter at least one entry.");
+            }
+        }
+window.embeddedChatbotConfig = {
+chatbotId: "n-Hr083Q1ve2F_W7CCskD",
+domain: "www.chatbase.co"
+}
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="n-Hr083Q1ve2F_W7CCskD"
+domain="www.chatbase.co"
+defer>
     </script>
 </head>
 <body>
@@ -22,11 +66,23 @@
             <h1>Stimilai</h1>
         </div>
         <div class="input-container">
-            <input type="text" id="inputText" class="input-box" placeholder="ENTER TEXT HERE" />
+            <input type="text" id="inputText" class="input-box" placeholder="ENTER TEXT HERE" onkeydown="addEntry(event)" />
+        </div>
+        <div class="entries-container">
+            <h3>Your Entries:</h3>
+            <ul id="entriesList">
+                <!-- List of entries will be displayed here -->
+            </ul>
         </div>
         <div class="button-container">
             <div class="button-box" onclick="goToPage2()">ENTER</div>
         </div>
     </div>
+    <iframe
+src="https://www.chatbase.co/chatbot-iframe/n-Hr083Q1ve2F_W7CCskD"
+width="100%"
+style="height: 100%; min-height: 700px"
+frameborder="0"
+></iframe>
 </body>
 </html>
