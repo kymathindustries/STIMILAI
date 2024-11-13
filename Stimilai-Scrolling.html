@@ -8,33 +8,18 @@
     <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-scrolling.css"/>
     <script>
         window.onload = function() {
+            // Retrieve entries from the URL
             const urlParams = new URLSearchParams(window.location.search);
-            const userInput = urlParams.get('text'); 
-            const reelsContainer = document.querySelector('.reelsContainer');
-            let reelCount = 0;
+            const entries = JSON.parse(urlParams.get('entries')); // Parse the entries JSON string
 
-            function createReel() {
-                reelCount++;
+            const reelsContainer = document.querySelector('.reelsContainer');
+            
+            // Display the entries as reels
+            entries.forEach((entry, index) => {
                 const reelDiv = document.createElement('div');
                 reelDiv.classList.add('reel');
-                reelDiv.innerHTML = `<p>${userInput} - Reel ${reelCount}</p>`;
+                reelDiv.innerHTML = `<p>${entry} - Reel ${index + 1}</p>`;
                 reelsContainer.appendChild(reelDiv);
-            }
-
-            for (let i = 0; i < 5; i++) {
-                createReel();
-            }
-
-            reelsContainer.addEventListener('scroll', () => {
-                const scrollTop = reelsContainer.scrollTop;
-                const scrollHeight = reelsContainer.scrollHeight;
-                const clientHeight = reelsContainer.clientHeight;
-
-                if (scrollTop + clientHeight >= scrollHeight - 10) {
-                    for (let i = 0; i < 3; i++) {
-                        createReel();
-                    }
-                }
             });
         }
 
