@@ -1,19 +1,33 @@
-.box {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  background-color: #071b4e;
-  border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px;
+* .input-container
+{
+  position: relative;
+  z-index: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;  /* Changed color to white to improve visibility */
+  justify-content: center;
+  align-items: flex-start;
+  bottom: 50px;
 }
+
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+}
+
 
 .title-container {
   display: flex;
@@ -25,6 +39,8 @@
   position: relative;
   z-index: 1;
   color: white;
+  font-size: 32px;
+  bottom: 76px;
 }
 
 .button-container {
@@ -34,10 +50,11 @@
   gap: 10px;
   margin-top: auto;
   margin-bottom: 230px;
+  z-index: 10;
 }
 
 .button-box {
-  background-color: #020a1d;
+  background-color: rgba(2, 10, 29, 0.5); /* rgba format for 50% opacity */
   color: white;
   border: 1px solid #666;
   border-radius: 5px;
@@ -47,30 +64,30 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  z-index: 10;
 }
 
 .button-box:hover {
   background-color: #4f586d;
 }
 
-input {
+input.input-box {
   width: 500px;
   height: 20px;
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #0a257e;
-  border: 2px solid #992eb4;
+  background-color: rgba(4, 15, 49, 0.5); /* Semi-transparent background */
   border-radius: 5px;
+  z-index: 1;
+  transition: background-color 0.3s;
 }
-
-input:focus {
-  background-color: #1647eb;
-  border-color: #9413b4;
+input.input-box:hover {
+  background-color: rgba(15, 35, 95, 0.5);
 }
-
 input::placeholder {
-  color: #474aff;
+  color: #ffffff;
   font-style: italic;
+  z-index: 1;
 }
 
 .entries-container {
@@ -78,22 +95,46 @@ input::placeholder {
   top: 10%;
   left: 10px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
   width: 250px;
   height: auto;
   max-height: 80%;
   overflow-y: auto;
   font-family: Arial, sans-serif;
+  z-index: 10;
 }
 
 .entries-container ul {
   list-style-type: none;
   padding-left: 0;
+  z-index: 10;
 }
 
 .entries-container li {
   padding: 5px 0;
+  z-index: 10;
+}
+
+.lesson{
+  background-color: #e6d600;
+  color: white;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  position: absolute;
+  justify-content: center;
+  padding: 10px 20px;
+  width: 90px;
+  height: 150px;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  bottom: 50px;
+  z-index: 10;
+}
+
+.lesson:hover {
+  background-color: #bcdf22;
 }
 
 .entries-container::-webkit-scrollbar {
