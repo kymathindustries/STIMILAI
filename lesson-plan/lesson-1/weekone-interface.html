@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LESSON 1 ASTRONOMY</title>
+    <link rel="stylesheet" href="weekone-interface.css"/>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const lesson1Button = document.getElementById("week-1");
+            
+            lesson1Button.addEventListener("click", () => {
+                const reels = ["Moon", "Sun", "Earth"]; // Information for Lesson 1
+                const encodedReels = encodeURIComponent(JSON.stringify(reels)); // Encode the array for URL
+                
+                // Redirect to Page 2 with the reels data as a query parameter
+                window.location.href = `scrolling-lesson1.html?reels=${encodedReels}`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="week"> 
+        <button id="week-1"> LESSON 1</button>
+    </div>
+    <div class="stars">
+        <!-- Starry background elements -->
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div><div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <h1>ASTRONOMY: STUDY OF COSMIC OBJECTS</h1> 
+</body>
+</html>
