@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STIMILAI PAGE 2</title>
+    <title>Stimilai Reels</title>
     <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-scrolling.css"/>
     <script>
         window.onload = function() {
@@ -21,28 +21,45 @@
                 reelDiv.innerHTML = `<p>${entry} - Reel ${index + 1}</p>`;
                 reelsContainer.appendChild(reelDiv);
             });
+        };
+
+        // Function to scroll to the next reel
+        function scrollToNextReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: reelsContainer.offsetWidth, // Scroll right (width of container)
+                behavior: 'smooth' // Smooth scroll
+            });
         }
 
-        function goToPage1() {
-            window.location.href = 'index.html'; // Path to Page 1
+        // Function to scroll to the previous reel
+        function scrollToPreviousReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: -reelsContainer.offsetWidth, // Scroll left (negative width of container)
+                behavior: 'smooth' // Smooth scroll
+            });
+        }
+
+        // Function to go back to Page 1
+        function goBackToPage1() {
+            window.location.href = 'index.html'; // Redirect to Page 1
         }
     </script>
 </head>
 <body>
-    <button id="btnh1" class="btn">LIKE BUTTON</button>
-    <script>
-        const button = document.getElementById('btnh1');
-        
-        button.addEventListener('click', () => {
-            button.classList.toggle('active');
-        });
-    </script>
-
-    <div style="display: flex; justify-content: center;">
-        <div class="reelsContainer"></div>
+    <!-- Reels Container (Scrollable) -->
+    <div class="reelsContainer">
+        <!-- Reels will be added here dynamically -->
     </div>
 
+    <!-- Buttons to navigate through reels -->
+    <button onclick="scrollToPreviousReel()" class="btn" style="position: fixed; top: 50%; left: 10px; transform: translateY(-50%);">▲</button>
+    <button onclick="scrollToNextReel()" class="btn" style="position: fixed; top: 50%; right: 10px; transform: translateY(-50%);">▼</button>
+
     <!-- Button to go back to Page 1 -->
-    <button onclick="goToPage1()" class="btn" style="position: fixed; bottom: 20px; left: -2px;">Back to Page 1</button>
+    <button onclick="goBackToPage1()" class="btn" style="font-size: 16px; width: 80px; height: 120px; position: fixed; top: 65px; left: 40px; transform: translateX(-50%);">Back to Page 1</button>
 </body>
 </html>
