@@ -15,8 +15,6 @@
 }
 
 html, body {
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -26,6 +24,8 @@ canvas {
   top: 0;
   left: 0;
   background-color: black;
+  height: 100%;
+  width: 100%
 }
 
 
@@ -97,7 +97,7 @@ input::placeholder {
   color: white;
   padding: 10px;
   width: 250px;
-  height: auto;
+  height: 250px;
   max-height: 80%;
   overflow-y: auto;
   font-family: Arial, sans-serif;
@@ -115,27 +115,80 @@ input::placeholder {
   z-index: 10;
 }
 
-.lesson{
-  background-color: #e6d600;
+.lesson {
+  background-color: rgba(2, 3, 20, 0.5);
   color: white;
   border: 1px solid #000000;
   border-radius: 5px;
   position: absolute;
   justify-content: center;
   padding: 10px 20px;
-  width: 90px;
-  height: 150px;
+  width: 150px;
+  height: 90px;
   text-align: center;
   font-size: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
   bottom: 50px;
   z-index: 10;
+  right: 20px;
+  top: 50px;
 }
 
 .lesson:hover {
-  background-color: #bcdf22;
+  background-color: #100542;
 }
 
 .entries-container::-webkit-scrollbar {
   display: none;}
+
+  .lesson-2 {
+  background-color: rgba(2, 3, 20, 0.5);
+  color: white;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  position: absolute;
+  justify-content: center;
+  padding: 10px 20px;
+  width: 150px;
+  height: 90px;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  bottom: 50px;
+  z-index: 10;
+  right: 20px;
+  top: 200px;
+}
+
+.lesson-2:hover {
+  background-color: #100542;
+}
+
+.entries-container::-webkit-scrollbar {
+  display: none;}
+
+  .lesson-3 {
+    background-color: rgba(2, 3, 20, 0.5);
+    color: white;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: center;
+    padding: 10px 20px;
+    width: 150px;
+    height: 90px;
+    text-align: center;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    bottom: 50px;
+    z-index: 10;
+    right: 20px;
+    top: 350px;
+  }
+  
+  .lesson-3:hover {
+    background-color: #100542;
+  }
