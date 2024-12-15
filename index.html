@@ -8,62 +8,44 @@
     <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-ai.css"/>
     <script defer src="jss.js"></script>
     <script>
-        // Array to store each entry
-        let entries = [];
+        let entries = [];  // Store all the entered entries
 
-        // Function to add entry on Enter key press
+        // Add entry when Enter key is pressed
         function addEntry(event) {
-            if (event.key === 'Enter') {  // Check if the Enter key was pressed
+            if (event.key === 'Enter') {
                 const inputField = document.getElementById('inputText');
                 const entryText = inputField.value.trim();
-                
+
                 if (entryText) {
-                    // Add entry to the entries array
-                    entries.push(entryText);
+                    entries.push(entryText);  // Save entry to the array
                     inputField.value = "";  // Clear the input field
-                    
-                    // Update the list of entries on the page
-                    updateEntriesDisplay();
+                    updateEntriesDisplay();  // Update the display list
                 }
             }
         }
 
-        // Function to update the list of entries displayed on the page
+        // Update the entries list
         function updateEntriesDisplay() {
             const entriesList = document.getElementById('entriesList');
-            entriesList.innerHTML = "";  // Clear current list
+            entriesList.innerHTML = ""; // Clear the list first
 
-            // Add each entry as a list item
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 const li = document.createElement('li');
-                li.textContent = entry;
+                li.textContent = `Reel ${index + 1}: ${entry}`;
                 entriesList.appendChild(li);
             });
         }
 
-        // Function to navigate to Page 2 and pass entries
+        // Go to Page 2 with the entries
         function goToPage2() {
             if (entries.length > 0) {
-                // Pass entries as a URL parameter to Page 2
                 const page2Url = `Stimilai-Scrolling.html?entries=${encodeURIComponent(JSON.stringify(entries))}`;
-                window.location.href = page2Url;
+                window.location.href = page2Url;  // Redirect to Page 2 with the entries
             } else {
                 alert("Please enter at least one entry.");
             }
         }
     </script>
-    <script>
-        window.embeddedChatbotConfig = {
-        chatbotId: "n-Hr083Q1ve2F_W7CCskD",
-        domain: "www.chatbase.co"
-        }
-        </script>
-        <script
-        src="https://www.chatbase.co/embed.min.js"
-        chatbotId="n-Hr083Q1ve2F_W7CCskD"
-        domain="www.chatbase.co"
-        defer>
-        </script>
 </head>
 <body>
     <div class="box">
@@ -71,21 +53,31 @@
             <h1>Stimilai</h1>
         </div>
         <div class="input-container">
-            <input type="text" id="inputText" class="input-box" placeholder="ENTER TEXT HERE" onkeydown="addEntry(event)" />
+            <input type="text" id="inputText" class="input-box" placeholder="Enter Text" onkeydown="addEntry(event)" />
         </div>
         <div class="entries-container">
             <h3>Your Entries:</h3>
-            <ul id="entriesList">
-                <!-- List of entries will be displayed here -->
-            </ul>
+            <ul id="entriesList"></ul>
         </div>
         <div class="button-container">
-            <div class="button-box" onclick="goToPage2()">ENTER</div>
+            <div class="button-box" onclick="goToPage2()">Enter</div>
         </div>
     </div>
-    <div class="lesson">
-        <h1>lesson 1</h1>
-    </div>
     <canvas id="test"></canvas>
+    
+    <!-- Lesson 1 now links to weekone-interface.html -->
+    <div class="lesson">
+        <a href="lesson-plan/lesson-1/weekone-interface.html">
+            <h1>Lesson 1</h1>
+        </a>
+    </div>
+    <div class="lesson-2">
+        <a href="lesson-plan/lesson-2/weektwo-interface.html">
+        <h1>Lesson 2</h1>
+    </a>
+    </div>
+    <div class="lesson-3">
+        <h1>Lesson 3</h1>
+    </div>
 </body>
 </html>
