@@ -602,8 +602,84 @@
     top: 50%;
     display: flex;
     font-family: Monospace;
-  }
-
-
-
-  
+  } 
+  #week-2 {
+    background-color: rgba(2, 3, 20, 0.5);
+    color: white;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 180px;
+    text-align: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+    left: 300px;
+    top: 50%;
+    display: flex;
+    font-family: Monospace;
+  } 
+  #week-3 {
+    background-color: rgba(2, 3, 20, 0.5);
+    color: white;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 180px;
+    text-align: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+    left: 550px;
+    top: 50%;
+    display: flex;
+    font-family: Monospace;
+  } 
+  #week-4 {
+    background-color: rgba(2, 3, 20, 0.5);
+    color: white;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 180px;
+    text-align: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+    left: 800px;
+    top: 50%;
+    display: flex;
+    font-family: Monospace;
+  } 
+  #week-5{
+    background-color: rgba(2, 3, 20, 0.5);
+    color: white;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 180px;
+    text-align: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+    left: 1050px;
+    top: 50%;
+    display: flex;
+    font-family: Monospace;
+  } 

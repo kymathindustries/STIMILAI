@@ -11,10 +11,9 @@
             const lesson1Button = document.getElementById("week-1");
             
             lesson1Button.addEventListener("click", () => {
-                const reels = ["Moon", "Sun", "Earth"]; // Information for Lesson 1
-                const encodedReels = encodeURIComponent(JSON.stringify(reels)); // Encode the array for URL
+                const reels = ["Moon", "Sun", "Earth"]; 
+                const encodedReels = encodeURIComponent(JSON.stringify(reels)); 
                 
-                // Redirect to Page 2 with the reels data as a query parameter
                 window.location.href = `scrolling-lesson1.html?reels=${encodedReels}`;
             });
         });
@@ -23,9 +22,12 @@
 <body>
     <div class="week"> 
         <button id="week-1"> LESSON 1</button>
+        <button id="week-2"> LESSON 2</button>
+        <button id="week-3"> LESSON 3</button>
+        <button id="week-4"> LESSON 4</button>
+        <button id="week-5"> LESSON 5</button>
     </div>
     <div class="stars">
-        <!-- Starry background elements -->
         <div class="star"></div>
         <div class="star"></div>
         <div class="star"></div>
@@ -56,6 +58,6 @@
         <div class="star"></div>
         <div class="star"></div>
     </div>
-    <h1>ASTRONOMY: STUDY OF COSMIC OBJECTS</h1> 
+    <h1>QUARTER 3 SCIENCE</h1> 
 </body>
 </html>
