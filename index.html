@@ -8,26 +8,24 @@
     <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-ai.css"/>
     <script defer src="jss.js"></script>
     <script>
-        let entries = [];  // Store all the entered entries
+        let entries = [];  
 
-        // Add entry when Enter key is pressed
+        
         function addEntry(event) {
             if (event.key === 'Enter') {
                 const inputField = document.getElementById('inputText');
                 const entryText = inputField.value.trim();
 
                 if (entryText) {
-                    entries.push(entryText);  // Save entry to the array
-                    inputField.value = "";  // Clear the input field
-                    updateEntriesDisplay();  // Update the display list
+                    entries.push(entryText);  
+                    inputField.value = "";  
+                    updateEntriesDisplay();  
                 }
             }
-        }
-
-        // Update the entries list
+        }     
         function updateEntriesDisplay() {
             const entriesList = document.getElementById('entriesList');
-            entriesList.innerHTML = ""; // Clear the list first
+            entriesList.innerHTML = ""; 
 
             entries.forEach((entry, index) => {
                 const li = document.createElement('li');
@@ -36,18 +34,40 @@
             });
         }
 
-        // Go to Page 2 with the entries
+        
         function goToPage2() {
             if (entries.length > 0) {
                 const page2Url = `Stimilai-Scrolling.html?entries=${encodeURIComponent(JSON.stringify(entries))}`;
-                window.location.href = page2Url;  // Redirect to Page 2 with the entries
+                window.location.href = page2Url;  
             } else {
                 alert("Please enter at least one entry.");
             }
         }
+
+        window.onload = function() {
+            document.getElementById('instructionOverlay').style.display = 'flex';
+        }
+
+        function hideInstructions() {
+            document.getElementById('instructionOverlay').style.display = 'none';
+        }
+
+        function showInstructions() {
+            document.getElementById('instructionOverlay').style.display = 'flex';
+        }
     </script>
 </head>
 <body>
+    <div id="instructionOverlay" class="instruction-overlay">
+        <div class="instruction-content">
+            <h2>Welcome to Stimilai!</h2>
+            <p>Here you can enter your text entries. Press 'Enter' after typing each entry. Click 'Enter' to proceed to the next page with your entries.</p>
+            <button onclick="hideInstructions()">I Understand</button>
+        </div>
+    </div>
+
+    <button class="show-instructions-button" onclick="showInstructions()">Show Instructions</button>
+
     <div class="box">
         <div class="title-container">
             <h1>Stimilai</h1>
@@ -65,19 +85,18 @@
     </div>
     <canvas id="test"></canvas>
     
-    <!-- Lesson 1 now links to weekone-interface.html -->
-    <div class="lesson">
-        <a href="lesson-plan/lesson-1/weekone-interface.html">
-            <h1>Lesson 1</h1>
+    <div class="lesson-1">
+        <a href="lesson-plan/lesson-1/scrolling-lesson1.html">
+            <h1>LESSONS 1</h1>
         </a>
     </div>
     <div class="lesson-2">
         <a href="lesson-plan/lesson-2/weektwo-interface.html">
-        <h1>Lesson 2</h1>
-    </a>
+            <h1>LESSONS 2</h1>
+        </a>
     </div>
     <div class="lesson-3">
-        <h1>Lesson 3</h1>
+        <a href="lesson-plan/lesson-3/weekthree-interface.html">
+            <h1>LESSONS 3</h1>
+        </a>
     </div>
-</body>
-</html>
