@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stimilai Reels</title>
+    <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-scrolling.css"/>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const entries = JSON.parse(urlParams.get('entries')); 
+
+            const reelsContainer = document.querySelector('.reelsContainer');
+            
+            entries.forEach((entry, index) => {
+                const reelDiv = document.createElement('div');
+                reelDiv.classList.add('reel');
+                reelDiv.innerHTML = `<p>${entry} - Reel ${index + 1}</p>`;
+                reelsContainer.appendChild(reelDiv);
+            });
+        };
+
+        function scrollToNextReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+
+        function scrollToPreviousReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: -reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+
+        function goBackToPage1() {
+            window.location.href = 'index.html'; 
+        }
+    </script>
+</head>
+<body>
+   
+    <div class="reelsContainer">
+        
+    </div>
+
+  
+    <button onclick="scrollToPreviousReel()" class="btn" style="position: fixed; top: 50%; left: 10px; transform: translateY(-50%);">▲</button>
+    <button onclick="scrollToNextReel()" class="btn" style="position: fixed; top: 50%; right: 10px; transform: translateY(-50%);">▼</button>
+
+    <button onclick="goBackToPage1()" class="btn" style="font-size: 16px; width: 80px; height: 120px; position: fixed; top: 65px; left: 40px; transform: translateX(-50%);">Back to Page 1</button>
+</body>
+</html>

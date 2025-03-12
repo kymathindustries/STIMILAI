@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stimilai</title>
+    <link type="text/css" rel="stylesheet" href="css/my-first-stylesheet-ai.css"/>
+    <script defer src="jss.js"></script>
+    <script>
+        let entries = [];  
+
+        
+        function addEntry(event) {
+            if (event.key === 'Enter') {
+                const inputField = document.getElementById('inputText');
+                const entryText = inputField.value.trim();
+
+                if (entryText) {
+                    entries.push(entryText);  
+                    inputField.value = "";  
+                    updateEntriesDisplay();  
+                }
+            }
+        }     
+        function updateEntriesDisplay() {
+            const entriesList = document.getElementById('entriesList');
+            entriesList.innerHTML = ""; 
+
+            entries.forEach((entry, index) => {
+                const li = document.createElement('li');
+                li.textContent = `Reel ${index + 1}: ${entry}`;
+                entriesList.appendChild(li);
+            });
+        }
+
+        
+        function goToPage2() {
+            if (entries.length > 0) {
+                const page2Url = `Stimilai-Scrolling.html?entries=${encodeURIComponent(JSON.stringify(entries))}`;
+                window.location.href = page2Url;  
+            } else {
+                alert("Please enter at least one entry.");
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('instructionOverlay').style.display = 'flex';
+        }
+
+        function hideInstructions() {
+            document.getElementById('instructionOverlay').style.display = 'none';
+        }
+
+        function showInstructions() {
+            document.getElementById('instructionOverlay').style.display = 'flex';
+        }
+    </script>
+</head>
+<body>
+    <div id="instructionOverlay" class="instruction-overlay">
+        <div class="instruction-content">
+            <h2>Welcome to Stimilai!</h2>
+            <p>Here you can enter your text entries. Press 'Enter' after typing each entry. Click 'Enter' to proceed to the next page with your entries.</p>
+            <button onclick="hideInstructions()">I Understand</button>
+        </div>
+    </div>
+
+    <button class="show-instructions-button" onclick="showInstructions()">Show Instructions</button>
+
+    <div class="box">
+        <div class="title-container">
+            <h1>Stimilai</h1>
+        </div>
+        <div class="input-container">
+            <input type="text" id="inputText" class="input-box" placeholder="Enter Text" onkeydown="addEntry(event)" />
+        </div>
+        <div class="entries-container">
+            <h3>Your Entries:</h3>
+            <ul id="entriesList"></ul>
+        </div>
+        <div class="button-container">
+            <div class="button-box" onclick="goToPage2()">Enter</div>
+        </div>
+    </div>
+    <canvas id="test"></canvas>
+    
+    <div class="lesson-1">
+        <a href="lesson-plan/lesson-1/scrolling-lesson1.html">
+            <h1>LESSONS 1</h1>
+        </a>
+    </div>
+    <div class="lesson-2">
+        <a href="lesson-plan/lesson-2/weektwo-interface.html">
+            <h1>LESSONS 2</h1>
+        </a>
+    </div>
+    <div class="lesson-3">
+        <a href="lesson-plan/lesson-3/weekthree-interface.html">
+            <h1>LESSONS 3</h1>
+        </a>
+    </div>
