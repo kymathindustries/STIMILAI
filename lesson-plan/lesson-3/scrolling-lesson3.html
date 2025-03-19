@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUARTER 3 SCIENCE</title>
+    <link rel="stylesheet" href="scrolling-lesson3.css"/>
+</head>
+<body>
+    <div class="reelsContainer"></div>
+    <button onclick="scrollToPreviousReel()" class="btn scroll-up">▲</button>
+    <button onclick="scrollToNextReel()" class="btn scroll-down">▼</button>
+    <button onclick="goBackToPage1()" class="btn" style="font-size: 16px; width: 80px; height: 120px; position: fixed; top: 65px; left: 40px; transform: translateX(-50%);">Back to Page 1</button>
+
+    <script>
+        function goBackToPage1() {
+            window.location.href = '../../index.html'; 
+        }
+
+        window.onload = function() {
+            let reels = [
+                { type: "video", src: "C:/Users/ACER/Desktop/Stimilai-Website-Kyle/lesson-3.mp4" },
+                { type: "text", content: "The Sun's Influence on Earth" },
+                { type: "text", content: "The Sun is composed of several layers:" },
+                { type: "text", content: "• Core – The central region where nuclear fusion occurs, producing energy." },
+                { type: "text", content: "• Radiative Zone – Energy moves outward from the core through radiation." },
+                { type: "text", content: "• Convective Zone – Energy is transported by convection currents to the surface." },
+                { type: "text", content: "• Photosphere – The visible surface of the Sun that emits light." },
+                { type: "text", content: "• Chromosphere & Corona – Outer atmospheric layers, visible during solar eclipses." },
+                { type: "text", content: "Nuclear Fusion: In the core, hydrogen atoms fuse to form helium, releasing vast amounts of energy. This process powers the Sun and produces the light and heat essential for life on Earth." },
+                { type: "text", content: "Electromagnetic Radiation: Energy from the Sun reaches Earth primarily as light and heat through electromagnetic waves. This energy drives weather patterns, ocean currents, and supports photosynthesis in plants." },
+                { type: "text", content: "• Solar radiation warms Earth's atmosphere and surface, creating temperature gradients that drive atmospheric circulation." },
+                { type: "text", content: "• Variations in solar energy can lead to climate phenomena such as El Niño and La Niña." },
+                { type: "text", content: "• The uneven heating of Earth's surface by the Sun causes wind and ocean currents, influencing daily weather conditions." },
+                { type: "text", content: "• Earth's 23.5-degree tilt and its orbit around the Sun result in varying solar angles, causing seasonal changes." },
+                { type: "text", content: "• When the Northern Hemisphere tilts toward the Sun, it experiences summer, while the Southern Hemisphere experiences winter, and vice versa." },
+                { type: "text", content: "• Sunspots – Cooler, darker areas on the Sun's surface associated with intense magnetic activity." },
+                { type: "text", content: "• Solar flares – Sudden eruptions of energy that can affect Earth's magnetosphere, leading to auroras and potential disruptions in communication systems." },
+                { type: "text", content: "• Plants convert solar energy into chemical energy, forming the base of most food chains." },
+                { type: "text", content: "• Sunlight enables humans to produce vitamin D, essential for bone health." },
+                { type: "text", content: "• Humans harness solar energy through technologies like solar panels for electricity and heating." },
+                { type: "video", src: "C:/Users/ACER/Desktop/Stimilai-Website-Kyle/lesson-3-quiz.mp4" }
+            ];
+
+            const reelsContainer = document.querySelector('.reelsContainer');
+
+            reels.forEach((reel) => {
+                const reelDiv = document.createElement('div');
+                reelDiv.classList.add('reel');
+
+                if (reel.type === "video") {
+                    const video = document.createElement('video');
+                    video.src = reel.src;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true; // Muted for autoplay compatibility
+                    video.style.width = "100%";
+                    video.style.height = "100%";
+                    video.style.objectFit = "contain"; // Prevents stretching
+                    video.style.borderRadius = "15px";
+
+                    reelDiv.appendChild(video);
+                } else if (reel.type === "text") {
+                    const text = document.createElement('p');
+                    text.innerHTML = reel.content;
+                    reelDiv.appendChild(text);
+                }
+
+                reelsContainer.appendChild(reelDiv);
+            });
+        };
+
+        function scrollToNextReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+
+        function scrollToPreviousReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: -reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html>

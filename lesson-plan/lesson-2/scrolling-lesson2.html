@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUARTER 3 SCIENCE</title>
+    <link rel="stylesheet" href="scrolling-lesson2.css"/>
+</head>
+<body>
+    <div class="reelsContainer"></div>
+
+    <button onclick="scrollToPreviousReel()" class="btn scroll-up">▲</button>
+    <button onclick="scrollToNextReel()" class="btn scroll-down">▼</button>
+    <button onclick="goBackToPage1()" class="btn" style="font-size: 16px; width: 80px; height: 120px; position: fixed; top: 65px; left: 40px; transform: translateX(-50%);">Back to Page 1</button>
+
+    <script>
+        function goBackToPage1() {
+            window.location.href = '../../index.html'; 
+        }
+
+        window.onload = function() {
+            let reels = [
+                { type: "video", src: "C:/Users/ACER/Desktop/Stimilai-Website-Kyle/Lesson-2.mp4" },
+                { type: "text", content: "An earthquake is the shaking of the ground caused by the sudden movement of rocks beneath Earth’s surface." },
+                { type: "text", content: "• Most earthquakes occur along faults, where tectonic plates meet and move against each other." },
+                { type: "text", content: "The Earth's crust is divided into large sections called tectonic plates, which move slowly over time." },
+                { type: "text", content: "Normal Fault – Plates pull apart." },
+                { type: "text", content: "Reverse Fault – Plates push together." },
+                { type: "text", content: "Strike-slip Fault – Plates slide past each other horizontally." },
+                { type: "text", content: "When an earthquake occurs, energy travels in the form of waves:" },
+                { type: "text", content: "• Primary (P) Waves – Fast-moving, travel through solids and liquids." },
+                { type: "text", content: "• Secondary (S) Waves – Slower, travel only through solids." },
+                { type: "text", content: "• Surface Waves – Cause the most damage, moving along Earth’s surface." },
+                { type: "text", content: "EFFECTS OF AN EARTHQUAKE INCLUDE: • Ground shaking, landslides, tsunamis, and building damage. • Can cause loss of life and destruction of infrastructure." },
+                { type: "text", content: "BEFORE AN EARTHQUAKE, YOU SHOULD: Prepare an emergency kit (food, water, flashlight). Identify safe spots (under sturdy tables or against interior walls). Secure heavy furniture to prevent tipping" },
+                { type: "text", content: "DURING AN EARTHQUAKE, YOU SHOULD: Drop, Cover, and Hold On. Stay indoors until the shaking stops. Stay away from windows and heavy objects" },
+                { type: "text", content: "AFTER AN EARTHQUAKE, YOU SHOULD: Drop, Cover, and Hold On. Stay indoors until the shaking stops. Stay away from windows and heavy objects" },
+                { type: "video", src: "C:/Users/ACER/Desktop/Stimilai-Website-Kyle/Lesson-Two-Quiz.mp4" }
+            ];
+
+            const reelsContainer = document.querySelector('.reelsContainer');
+
+            reels.forEach((reel, index) => {
+                const reelDiv = document.createElement('div');
+                reelDiv.classList.add('reel');
+
+                if (reel.type === "video") {
+                    const videoElement = document.createElement("video");
+                    videoElement.setAttribute("controls", "true");
+
+                    // Ensuring video height is same as reel height
+                    videoElement.style.height = "100%";
+                    videoElement.style.width = "auto";
+                    videoElement.style.maxWidth = "100%"; // Prevents overflowing horizontally
+
+                    const sourceElement = document.createElement("source");
+                    sourceElement.setAttribute("src", reel.src);
+                    sourceElement.setAttribute("type", "video/mp4");
+
+                    videoElement.appendChild(sourceElement);
+                    reelDiv.appendChild(videoElement);
+                } else if (reel.type === "text") {
+                    const text = document.createElement('p');
+                    text.innerHTML = reel.content;
+                    reelDiv.appendChild(text);
+                }
+
+                reelsContainer.appendChild(reelDiv);
+            });
+        };
+
+        function scrollToNextReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+
+        function scrollToPreviousReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: -reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html>

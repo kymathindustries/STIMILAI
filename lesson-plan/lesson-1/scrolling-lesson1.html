@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUARTER 3 SCIENCE</title>
+    <link rel="stylesheet" href="scrolling-lesson1.css"/>
+</head>
+<body>
+    <div class="reelsContainer"></div>
+    <button onclick="scrollToPreviousReel()" class="btn scroll-up">▲</button>
+    <button onclick="scrollToNextReel()" class="btn scroll-down">▼</button>
+    <button onclick="goBackToPage1()" class="btn" style="font-size: 16px; width: 80px; height: 120px; position: fixed; top: 65px; left: 40px; transform: translateX(-50%);">Back to Page 1</button>
+
+    <script>
+        function goBackToPage1() {
+            window.location.href = '../../index.html'; 
+        }
+
+        window.onload = function() {
+            let reels = [
+                { type: "video", src: "C:/Users/ACER/Desktop/Stimilai-Website-Kyle/lesson-ones.mp4" }, // Replace with your video file
+                "All places on Earth have specific addresses that make it easier to find locations. To help us locate places on Earth's surface, we use a coordinate system.", 
+                "Lines of Latitude – extend east to west", 
+                "Lines of Longitude – extend north to south", 
+                "A globe is a round model of Earth, accurately representing the shapes, sizes, and distances of land and water. Since it is three-dimensional, it is the most accurate tool to show Earth's actual size and shape.",
+                "A map is a flat drawing of the Earth. It is more convenient than a globe because it is easier to use and carry.",
+                "Latitudes are imaginary horizontal lines that extend east to west across the Earth. They are divided into five major lines parallel to the Equator (0° latitude):",
+                "Tropic of Cancer – 23.5°N (north of the Equator) People living between the Equator and the Tropic of Cancer experience a warm and humid climate.",
+                "Arctic Circle – 66.5°N (uppermost latitude in the Northern Hemisphere)", 
+                "Tropic of Capricorn – 23.5°S (south of the Equator) People living between the Equator and the Tropic of Capricorn experience four seasons: winter, spring, summer, and autumn.",
+                "Antarctic Circle – 66.5°S (bottom-most latitude in the Southern Hemisphere)",
+                "Lines of longitude are imaginary vertical lines that extend north to south. They are evenly spaced at the Equator but meet at the poles. The starting point for longitude is the Prime Meridian (0° longitude). The 180° line divides the Earth into the Western and Eastern Hemispheres.",
+                { type: "video", src: "C:/Users/ACER/Desktop/Stimilai-Website-Kyle/lesson-1-QUIZ.mp4" }
+            ];
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlReels = urlParams.get('reels');
+
+            if (urlReels) {
+                try {
+                    reels = JSON.parse(decodeURIComponent(urlReels));
+                } catch (error) {
+                    console.error("Error parsing reels from URL:", error);
+                }
+            }
+
+            const reelsContainer = document.querySelector('.reelsContainer');
+
+            reels.forEach((reel, index) => {
+                const reelDiv = document.createElement('div');
+                reelDiv.classList.add('reel');
+
+                if (typeof reel === "object" && reel.type === "video") {
+                    const videoElement = document.createElement("video");
+                    videoElement.setAttribute("controls", "true");
+                    videoElement.setAttribute("width", "100%");
+                    videoElement.setAttribute("height", "100%");
+
+                    const sourceElement = document.createElement("source");
+                    sourceElement.setAttribute("src", reel.src);
+                    sourceElement.setAttribute("type", "video/mp4");
+
+                    videoElement.appendChild(sourceElement);
+                    reelDiv.appendChild(videoElement);
+                } else {
+                    reelDiv.innerHTML = `<p>Reel ${index}: ${reel}</p>`;
+                }
+
+                reelsContainer.appendChild(reelDiv);
+            });
+        };
+
+        function scrollToNextReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+
+        function scrollToPreviousReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: -reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html>
