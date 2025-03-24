@@ -9,12 +9,6 @@
   bottom: 50px;
 }
 
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body {
   overflow: hidden;
 }
@@ -30,6 +24,18 @@ canvas {
 }
 
 
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #00f;
+  }
+  50% {
+    text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 40px #00f;
+  }
+  100% {
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #00f;
+  }
+}
+
 .title-container {
   display: flex;
   justify-content: center;
@@ -42,7 +48,9 @@ canvas {
   color: white;
   font-size: 32px;
   bottom: 76px;
+  animation: glow 2s infinite alternate; /* Apply the glowing animation */
 }
+
 
 .button-container {
   display: flex;
@@ -267,12 +275,6 @@ input::placeholder {
   bottom: 50px;
 }
 
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body {
   overflow: hidden;
 }
@@ -356,22 +358,30 @@ input::placeholder {
   color: white;
   padding: 10px;
   width: 250px;
-  height: 250px;
-  max-height: 80%;
-  overflow-y: auto;
+  height: auto;
+  max-height: 40vh; /* Adjust for mobile screen */
+  overflow-y: auto; /* Enables scrolling */
   font-family: Arial, sans-serif;
   z-index: 10;
+}
+
+/* Ensure scrollbars appear on mobile */
+.entries-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.entries-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
 }
 
 .entries-container ul {
   list-style-type: none;
   padding-left: 0;
-  z-index: 10;
 }
 
 .entries-container li {
   padding: 5px 0;
-  z-index: 10;
 }
 
 .lesson-1 {
@@ -391,7 +401,7 @@ input::placeholder {
   bottom: 50px;
   z-index: 10;
   right: 20px;
-  top: 540px;
+  top: 440px;
 }
 
 .lesson-1:hover {
@@ -417,7 +427,7 @@ input::placeholder {
   transition: background-color 0.3s;
   z-index: 10;
   right: 20px;
-  top: 660px;
+  top: 560px;
 }
 
 .lesson-2:hover {
@@ -441,7 +451,7 @@ input::placeholder {
     font-size: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-    top: 780px;
+    top: 680px;
     z-index: 10;
     right: 20px;
   }
@@ -509,4 +519,4 @@ input::placeholder {
   z-index: 1000;
 }
 
-
+}
