@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUARTER 4 SCIENCE - LESSON 3</title>
+    <link rel="stylesheet" href="scrolling-lesson3.css"/>
+</head>
+<body>
+    <div class="reelsContainer"></div>
+
+    <button onclick="scrollToPreviousReel()" class="btn scroll-up">▲</button>
+    <button onclick="scrollToNextReel()" class="btn scroll-down">▼</button>
+    <button onclick="goBackToPage1()" class="btn" style="font-size: 16px; width: 80px; height: 120px; position: fixed; top: 65px; left: 40px; transform: translateX(-50%);">Back to Page 1</button>
+
+    <script>
+        function goBackToPage1() {
+            window.location.href = '../../index.html'; 
+        }
+
+        window.onload = function() {
+            let reels = [
+                { type: "iframe", src: "https://www.youtube.com/embed/4He8cv8yNaM", title: "Lesson 3 Part 1" },
+                { type: "iframe", src: "https://www.youtube.com/embed/f1BAiOa7f6U", title: "Lesson 3 Part 2" },
+                { type: "iframe", src: "https://www.youtube.com/embed/t-7AETeqOKI", title: "Lesson 3 Part 3" }, // Replace with actual URL
+                "The Sun's Influence on Earth",
+                "The Sun is composed of several layers:",
+                "• Core – The central region where nuclear fusion occurs, producing energy.",
+                "• Radiative Zone – Energy moves outward from the core through radiation.",
+                "• Convective Zone – Energy is transported by convection currents to the surface.",
+                "• Photosphere – The visible surface of the Sun that emits light.",
+                "• Chromosphere & Corona – Outer atmospheric layers, visible during solar eclipses.",
+                "Nuclear Fusion: In the core, hydrogen atoms fuse to form helium, releasing vast amounts of energy.",
+                "Electromagnetic Radiation: Energy from the Sun reaches Earth primarily as light and heat.",
+                "• Solar radiation warms Earth's atmosphere and surface, driving weather patterns.",
+                "• Variations in solar energy can lead to climate changes such as El Niño and La Niña.",
+                "• Uneven heating of Earth's surface causes wind and ocean currents.",
+                "• Earth's 23.5-degree tilt causes seasonal changes.",
+                "• Sunspots – Cooler, darker areas on the Sun's surface.",
+                "• Solar flares – Sudden eruptions of energy that can affect Earth's magnetosphere.",
+                { type: "iframe", src: "https://www.youtube.com/embed/D1UvzHTZ_y4", title: "Lesson 3 Quiz" } // Replace with actual quiz URL
+            ];
+
+            const reelsContainer = document.querySelector('.reelsContainer');
+
+            reels.forEach((reel, index) => {
+                const reelDiv = document.createElement('div');
+                reelDiv.classList.add('reel');
+
+                if (typeof reel === "object" && reel.type === "iframe") {
+                    const iframe = document.createElement("iframe");
+                    iframe.width = "100%";
+                    iframe.height = "100%";
+                    iframe.src = reel.src;
+                    iframe.frameBorder = "0";
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    iframe.title = reel.title;
+
+                    reelDiv.appendChild(iframe);
+                } else {
+                    const text = document.createElement("p");
+                    text.innerHTML = reel;
+                    reelDiv.appendChild(text);
+                }
+
+                reelsContainer.appendChild(reelDiv);
+            });
+        };
+
+        function scrollToNextReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+
+        function scrollToPreviousReel() {
+            const reelsContainer = document.querySelector('.reelsContainer');
+            reelsContainer.scrollBy({
+                top: 0,
+                left: -reelsContainer.offsetWidth, 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html>
